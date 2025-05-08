@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1win x Rocket Queen</title>
+    <link href="DynamicSelect.css" rel="stylesheet" type="text/css" />
+    <link type="image/x-icon" href="/favicon.png" rel="shortcut icon" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        background-image: url('bg.avif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background: linear-gradient(
+            135deg,
+            #0b0b3b 0%,
+            #3a0f6e 50%,
+            #2e0f5e 100%
+          ); */
+        color: white;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+
+      .star {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: twinkle 5s infinite;
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes girl {
+        0% {
+          transform: translateY(0) rotate(7deg);
+          animation-timing-function: linear;
+        }
+        50% {
+          transform: translateY(20px) rotate(2deg);
+          animation-timing-function: linear;
+        }
+        80% {
+          transform: translateY(20px) rotate(6deg);
+          animation-timing-function: linear;
+        }
+        00% {
+          transform: translateY(0) rotate(7deg);
+          animation-timing-function: linear;
+        }
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        min-height: 100vh;
+        height: fit-content;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 36px 100px 36px 160px;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        width: 330px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .logo img {
+        width: 100%;
+        height: auto;
+      }
+
+      .logo-1win {
+        color: #3897f0;
+        margin-right: 10px;
+      }
+
+      .times {
+        font-size: 1.5rem;
+        color: #fff;
+        margin: 0 10px;
+      }
+
+      .logo-rocket {
+        color: #fff;
+        background: linear-gradient(45deg, #f5b001, #ff6b6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-style: italic;
+      }
+
+      .language-selector {
+        display: flex;
+        align-items: center;
+      }
+
+      .language-selector img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+
+      .language-selector select {
+        background: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .account-link {
+        /* display: flex;
+          align-items: center;
+          background-color: #1a1a42;
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-decoration: none;
+          color: white;
+          transition: all 0.3s ease; */
+
+        position: relative;
+        display: flex;
+        padding: 12px 55px 12px 16px;
+        border-radius: 16px;
+        background-color: #ffffff0d;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        transition-property: background-color;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.2s;
+        text-decoration: none;
+      }
+
+      .account-link__bottom {
+        display: none;
+      }
+
+      .account-link_circle {
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background: #fff;
+        right: 15px;
+        top: 50%;
+        font-size: 20px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+      }
+
+      .account-link:hover {
+        background-color: #ffffff1a;
+        text-decoration: none;
+      }
+
+      .account-link_container {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0.01px;
+        color: #ffffff80;
+      }
+      .account-link_container .big {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.43;
+        text-decoration: none;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0 100px;
+        width: 100%;
+        margin: 0;
+      }
+
+      .bonus-heading {
+        font-size: 33px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        text-shadow: 5px 5px #f344ff;
+        letter-spacing: 2px;
+        font-weight: 900;
+        width: 450px;
+      }
+
+      .form-container {
+        backdrop-filter: blur(10px);
+        gap: 16px;
+        padding: 24px;
+        background-color: #0000004d;
+        border-radius: 22px;
+        box-shadow: 0 0 85px 20px #f344ff66;
+        position: relative;
+        width: 450px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+      }
+
+      .form-control {
+        /* appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none; */
+
+        /* width: 100%;
+          /* padding: 15px;
+          border-radius: 8px;
+          border: none; */
+        /* color: white;
+          font-size: 1rem; */
+
+        background-color: rgba(255 255 255 / 9%);
+        font-weight: 500;
+        padding: 15px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .form-control:hover {
+        outline: 1px solid #0075ff;
+      }
+
+      .form-control:focus {
+        outline: 1px solid #0075ff;
+      }
+
+      .currency-option {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .currency-icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        min-width: 20px;
+        text-align: center;
+      }
+
+      .phone-input {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .country-select-mini {
+        min-width: 50px;
+        height: 51px;
+        background-color: rgba(41, 41, 97, 0.8);
+        color: white;
+        border: none;
+        border-radius: 8px 0 0 8px;
+        padding: 0 8px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .country-select-mini option {
+        width: 20px;
+        height: 20px;
+      }
+
+      .phone-input-field {
+        flex-grow: 1;
+        height: 51px;
+        background-color: rgba(255 255 255 / 9%);
+        font-weight: 500;
+        padding: 15px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        border-radius: 0 12px 12px 0;
+      }
+
+      .phone-input-field:hover {
+        outline: 1px solid #0075ff;
+      }
+
+      .phone-input-field:focus {
+        outline: 1px solid #0075ff;
+      }
+
+      .error-message {
+        color: #ff6b6b;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .error-message.visible {
+        display: block;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        border-radius: 50px;
+        border: none;
+        background: linear-gradient(45deg, #b154f8, #8a54f8);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .submit-btn:disabled {
+        background: linear-gradient(45deg, #8f8f8f, #6b6b6b);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .submit-btn:hover:not(:disabled) {
+        background: linear-gradient(45deg, #9e32f9, #7032f9);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-icon {
+        margin: 0 10px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 36px 24px;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.7);
+        bottom: 0;
+        width: 100%;
+      }
+
+      @media (max-width: 920px) {
+        .header {
+          flex-direction: column;
+          gap: 20px;
+          padding: 36px 100px;
+        }
+
+        .bonus-heading {
+          font-size: 2rem;
+        }
+
+        .form-container {
+          padding: 20px;
+        }
+
+        .main {
+          margin: 0 auto;
+          align-items: center;
+        }
+
+        .account-link.account-link__top {
+          display: none;
+        }
+
+        .account-link__bottom {
+          display: block;
+          background: transparent !important;
+          backdrop-filter: none;
+          margin-top: 30px;
+          padding: 12px;
+        }
+
+        .account-link__bottom .account-link_circle {
+          display: none;
+        }
+
+        .girl-image {
+          width: 500px !important;
+          height: 420px !important;
+          top: 20px !important;
+          right: 10px !important;
+        }
+      }
+
+      /* custom */
+      /* background-color: rgba(255 255 255 / 9%);
+        font-weight: 500;
+        padding: 15px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        border-radius: 12px;
+      } */
+
+      .form-control:hover {
+        outline: 1px solid #0075ff;
+      }
+
+      .form-control:focus {
+        outline: 1px solid #0075ff;
+      }
+
+      .dynamic-select-header {
+        width: 55px !important;
+        height: 51px !important;
+        padding: 0 6px !important;
+        background-color: rgba(255 255 255 / 9%);
+        font-weight: 500;
+        border: none !important;
+        border-radius: 8px 0 0 8px !important;
+      }
+
+      .dynamic-select-header:hover {
+        outline: 1px solid #0075ff;
+      }
+
+      .dynamic-select-header:focus {
+        outline: 1px solid #0075ff;
+      }
+
+      .dynamic-select-header > img {
+        width: 32px !important;
+      }
+
+      .dynamic-select-header > span {
+        display: none !important;
+      }
+
+      .dynamic-select-header::after {
+        height: 8px !important;
+        width: 8px !important;
+        right: 4px !important;
+      }
+
+      .dynamic-select-options {
+        width: 200px !important;
+      }
+
+      .girl-image {
+        position: absolute;
+        width: 650px;
+        height: 546px;
+        right: 20px;
+        top: 80px;
+        background-image: url('girl.avif');
+        background-size: 100% 100%;
+        z-index: -1;
+        animation: 3s linear 0s infinite alternate none running girl;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="stars" id="stars"></div> -->
+
+    <div class="container">
+      <header class="header">
+        <div class="logo-container">
+          <a href="#" class="logo">
+            <img src="logo.svg" />
+          </a>
+        </div>
+
+        <!-- ССЫЛКА НА ВЕРХНЕЙ КНОПКЕ "Перейти на сайт" -->
+        <a href="https://google.com" class="account-link account-link__top">
+          <div class="account-link_container">
+            <span> Уже есть аккаунт?</span>
+            <span class="big"> Перейти на сайт </span>
+          </div>
+          <div class="account-link_circle">→</div>
+        </a>
+      </header>
+
+      <main class="main">
+        <!-- НАДПИСЬ НАД ФОРМОЙ-->
+        <h1 class="bonus-heading">ПРИВЕТСТВЕННЫЙ<br />БОНУС 500%</h1>
+
+        <div class="form-container">
+          <form id="register-form">
+            <div class="form-group">
+              <select class="form-control" id="currency-select">
+                <option value="rub" selected>Российский рубль (RUB)</option>
+                <option value="byn">Белорусский рубль (BYN)</option>
+                <option value="kzt">Казахстанский тенге (KZT)</option>
+                <option value="uzs">Узбекский сум (UZS)</option>
+                <option value="azn">Азербайджанский манат (AZN)</option>
+                <option value="kgs">Киргизский сом (KGS)</option>
+                <option value="tjs">Таджикский сомони (TJS)</option>
+                <option value="uah">Украинская гривна (UAH)</option>
+                <option value="amd">Армянский драм (AMD)</option>
+                <option value="usd">Доллар США (USD)</option>
+              </select>
+              <div class="error-message" id="currency-error">
+                Выберите валюту
+              </div>
+            </div>
+
+            <div class="form-group phone-group">
+              <div class="phone-input">
+                <select
+                  id="dynamic-select"
+                  name="example-select"
+                  class="dynamic-select"
+                ></select>
+                <input
+                  type="tel"
+                  class="phone-input-field"
+                  id="phone"
+                  placeholder="+7 XXX XXX-XX-XX"
+                />
+              </div>
+              <div class="error-message" id="phone-error">
+                Введите корректный номер телефона
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select
+                class="country-select-mini"
+                id="country-select"
+                style="display: none"
+              >
+                <option value="ru" selected>RU</option>
+                <option value="kz">KZ</option>
+                <option value="uz">UZ</option>
+                <option value="az">AZ</option>
+                <option value="kg">KG</option>
+                <option value="tj">TJ</option>
+                <option value="ua">UA</option>
+                <option value="by">BY</option>
+                <option value="am">AM</option>
+                <option value="md">MD</option>
+              </select>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+              />
+              <div class="error-message" id="email-error">
+                Введите корректный e-mail адрес
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Пароль"
+              />
+              <div class="error-message" id="password-error">
+                Пароль должен содержать не менее 6 символов
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="promo"
+                placeholder="Промокод (необязательно)"
+              />
+            </div>
+
+            <!-- НАДПИСЬ НА КНОПКЕ -->
+            <button type="submit" class="submit-btn" id="submit-btn" disabled>
+              <span class="btn-icon">»</span>
+              ИСПОЛЬЗОВАТЬ БОНУС
+              <span class="btn-icon">«</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- ССЫЛКА НА НИЖНЕЙ КНОПКЕ "Перейти на сайт". Появляется только на маленьких экранах -->
+        <a href="https://google.com" class="account-link account-link__bottom">
+          <div class="account-link_container">
+            <span> Уже есть аккаунт?</span>
+            <span class="big"> Перейти на сайт </span>
+          </div>
+          <div class="account-link_circle">→</div>
+        </a>
+      </main>
+
+      <footer class="footer">Copyright © 2025 1win all rights reserved</footer>
+
+      <div class="girl-image"></div>
+    </div>
+
+    <script src="DynamicSelect.js"></script>
+    <script>
+      new DynamicSelect('#dynamic-select', {
+        data: [
+          {
+            value: 'ru',
+            text: 'Россия',
+            selected: true,
+            img: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACjUlEQVR4nO2YzWoTURTHTyrUVevXQhf6Am6kRRTq3MzGhbpxpvE1VFC04Ad0WdRW+whuSm0Upcz4FlKQrEbiPedm4kpdVLtIFj1ypzGY2jCZZDJ3QnPgD2GYTH6/e+7HEIBxjWtcAxczH0HEWSK6K0mVkWgLkZRE2tHRn/U1SWoDEe9IKWf0d8B0SSnPENHCHqviJJGo6pLU0pcwPJc5eBAE04jqJZJqJgU/IE1EtaKfmQk8It6SpL6lAN7ZEf1MrJWGBs7MBUm0KJF204bHTpFVZp5IFT4IgqMS1eYwwfHfoPpQqVQmU4HXoxHtHlnBU1tiPZVOSFSvMoentsTyYPCydsMYPLXWhKxd7wu+Wq0e2zuADAsghVLK44kF9N5sGh7boReJ4JVSJyXSL/Pg6m8XfodheCrJ6D81DY37JYge94jPhaLjo+36nKcUXU9qtlh8u+RfNA1rd4lwN2djBYo3/YemQe1uXZj378cLuN7b3Ao4Xjl+Crne59wKuP5WDwL+zxwLfI8XcLymaVC7Wxy/cSgEfoz2FHJHfBEXHa9sGtTuno1eptCD3HbA8e+N9KtEsfRxJlZgrwt+dWRf5nSxgCcsgHMVCx5Br8UWnGAB28ahRTvbmqlngVYXlnM0+s8SwUcCl2CaLVDG4QUQz8FUYoFIwoKrLGDX8Ohf6wu+LSFgxSD884HgIwGAAgt4bUBgjQHS+ZOXz8MkC3if4ci/07+ZCvy+TixmsCZWUxv5A0UElFhAfQjgdS7C/NDAOyTmYKp1TjRSAG/oxdr3VjmQyGU4zRYssAVf+wAPWcAS23A2c/D/RAAm+ApcYAtuswVv2IJP0QEkYKcViq5ZsB7do+8d5jwf17gOUf0BgKZqqdr/knMAAAAASUVORK5CYII=',
+          },
+          {
+            value: 'by',
+            text: 'Беларусь',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'kz',
+            text: 'Казахстан',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'uz',
+            text: 'Узбекистан',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'az',
+            text: 'Aзербайджан',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'kg',
+            text: 'Киргизия',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'tj',
+            text: 'Таджикистан',
+            img: 'data:image/png;base64,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',
+          },
+          {
+            value: 'ua',
+            text: 'Украина',
+            img: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFhUlEQVR4nO2cz2+URRjHxxrFcjERMLEUd96mUeJJsvNgD0ZCojZGAePPP0HA2EjQM1cPVqndGbLBYOKRi4InxSPghQhC2Xlb3ZY0BQ9a2p0pjWTn7Zhp14MkTbv7zu7M++58km/StNvs+zzfeefXM++LUCAQCAQCgUAgEAh4xACTT2K2NIyZHMFMUszEz5iJ6xGT1YjJu5iK+0bmZ/M78zfMxIXVz1L5EaZLrw6OiR2u48gMT5X1VlwShyIqxlYTTcVKxKROJSpW1kwTJzGrHewf1b2u4/SLE7pnoCRejJgsYyZrqRO+ocRyxOTZiNYOoLP6YdStFL7Rj0VUHI2YnG5/0tdVdYCJI+ZaUFd1M3Tpk4iKOw4T/2A3Za7luLk2lGfMbR9ROeM84WxdI+YiJt9FeaNwagFjKn9wnmC2WSPkOVxaLqA8UKDizcY0UWdJmMkapvJ9lFUGx/QWM510ncgovcomFpQl+sZr2yIqf/EgedrS3XCp//TiEygL7Bq/19dYreqcqTJQXn4a+UyhLHZjJmY9SJZuz50gZk2MyEf6T93bGTFxy3WSonaLijnvZkirfT6TFefJYR26E6icMhuFyJ/ZTn4G3GjTd4K87MXsCFNRcp4M5kriK6fJj0riHfdJkK5NeNvl9sKi+wRI11pwMihjJs97ELz2QlSec7G/4z5w5pFMgacTmD3zrpjvs6Y13ZFyJ2a1Tz0IVnupkjzW/jk/E7edB8p8lfizrXdBo4brQaDSWxWoONye7J/QPY4L6DojqiKtH7Ke/wKV+z0ITmdBmIp91g3ATJ5xHViUEWEmv7aafDOwhFWvbMaAmtXBePW4oActK8qUam9YMyAnxXXdSWEmRq0ZkNMar26vxFUryTeVHyunlLtOInmmLLZbaP1Lw+6DkVnVyxYMkCMeBKIzqg9tGEA9CER3bcnSPPLjPhCZUYkf0xtAxQ33gchMCjPxW2oDQvFFpjFhOr0BVM67bklRRoWp/Cu1AY3HQJ0HE2VQmIl/UhugYrifxKCDoOkcKA42DCDzIfnQUgNUHNJ3QSqGW8EAaNEAkn4QVjHcCAZAqwakn4YmHC4EA6DFMZCkX4glHGgwAFo1IP1WhOIwEgyA1rqgmKTfjKtzGA4GQEsG1CdJ+u1oPfX8DsVhJZgAzU5BE12BbcgGKobrwQBo1oBfkS2SGE4GA6DZAfhzawbUOTkYDIAm+/+9r1szQM8O9SoOi8EE2OwCrGZyhmySxHAmGACbuwM4OY1sU+d79wcDYFMG6El4yboBWqMexaEaTICNZj9/aI3sH083qJgcDQbABgYUP0DtQk8NblEx3A4mwDpbD3BHz+xr7xsYFYfjwQBYb+/nY9Ru9JXiVhWTmWACPNj3V61PPdejHpPXggHw/4VXBew9D7AZkhjOBxPgv3n/d6jT6Jt7CorDQreboGJyV08U3bxLrs7JgW7eqlYcVuoV8hZyiSm7uU5E4kocvkSuaawNLnVh67+oJ557FPmArhYfN0cwuif55KaeGPLrRa56cmhnNxziUpzMORt0N0LHxd2Kw2x+kw+zmpNnkc9ovqcvj92R4qSifye7UBYw/aOKyeUctfyL3vX5G6GvFB9JOPksB+uEsjeznVaox8VDZrWYvVZPaiqG91AeMNsWmdo74vC9tzOd9FsXZNrfVg9Vq8dJfGStnlA85lNlTXEyZ4opHdvP94HGFsYRl4V+892Kw2FzLaib0fyFYhKTMRWTvzuQ9MWEw7fm5HLbTi9kFT071GsqSwmHLxQn18wJYwsJTxQnVxNORk3/3vaieZ7QcXF7vVJ8xTzokMQwnsTwU8OYqnl60zxCuyYyv9adkGvmsSDzWfM/q608LqZ/Z08gEAgEAoFAIBAIIHv8C4WF4dQCXEMrAAAAAElFTkSuQmCC',
+          },
+          {
+            value: 'am',
+            text: 'Армения',
+            img: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFLUlEQVR4nO2cT2wVVRjFT1qBoEZQE0H8g2u2LATfvTMK1tBY0jdotyRKxI1CNFGW3bIASQP23qcLd8bUuLFzDSxMjStjUGNKQQsCXRCoSE1YkIDaY2ZaiJI0pa8zc++030lO0rSvr/nOb+6db76ZPkAkEolEIpFIJBKJAhK341FG6KLCAWp8RIXjVDhNhSvUmKLGP7Oeyr8387Pjs689kP/uFjziu47aiJtxPxV6qHCMCuPUYCHO3kvhKDVezv6G7zqDEoEONqCo0aLG9cJCn9s3qDHEBnYyxn1YruIOrGIDu6lwpoLQ5/JvjLB/Wa2KPHiFd6lw1WPwd/t3KrzDTViJpSwq9FHhfACBc84VofAqlpoYYz0VvgggYN6TFVLGeBJLQdkRRYU/vYeqF+yszX0FdVXWYVDjIDWmAwiTi3CrducGKjxMhW8DCI8F+RvGWIs6iM9hAzV+DiA0FuwxNvA0QhZjPEONiQDCYkm+yK3YiBCVdQ15G+c/JJbsc9yCJxDgnu/zipYVe4wvYg1CEPvQSQUXQCis1AongpglUWPAexjamw/7Db+B7iXQ53MRns6mqn7C13g8H2L5D4GePclnsa56AHWa7eiSrfBZteFrvOS9aB2YG+iuJvzNWEGFs94L1sH51yyb8gFovBlAsQzUe8oNfxNWUuFCAIUyUE+UOjmlwhsBFMmgrfBamQB+8F6gDtwKP5YVfsN7cbombmBL4QDixLXixFHs5s+g6Wyh4ff1DXXGzXRSwnf3dABGibsaxyPFDeqiXekLEr5b2OrvHX6+OABN94EAcAvcftPiJqVR4k4KALcwAM30+0LC7+o68UCUpH8JALcgAHlmfSMPLhqATtw2Cd+11f1l585FA4iSdJ8AcO2130331qIBxE03IABceyugmR4pAEDqBIBrD0CSDi8aQNRMTwkA1+YKcKMFrAA3IQBcuwAuFgAgvSYAXJtbkPujiBVwUwC4drugmwIgqT0A2YJiz1uQnIQTjydhaUOd7zZULsRinxdiMopwfkcRMoxzfodxMo52fsfR2Q2ZuJne8tZLJzV1M721uefLYj4EJLu95r2gpF6OEvcdipLclHftrIBDhQHIHrHwfUTFNXPUO6wLA4D+/o6o6S77LiquiaPEXckeZisOwMz1gPVdWFwTR0k6iKJFi620oBjzZzBYwsO5sxBOCgDMB6Ccx9NzAAZ7BADmA1DiP2gMYSUtLggEzBX+xSyj0gDkECz2CgDMtfe/Xmr4OYAWVtBiXCDg/+EbnGF/RR/eQYMuAYC7V8D2SsK/A8Hic4GA2+F/Wmn4OYBBPEaLywIBkzyG9ZUDyCFY7KDB9LKFYDDNQfR4Cf8OBIMjyxjAIa/h5wCG0EmD1HsYtnIfr6zrmU9sYQ0txgIIhRV5lAN4CCGJH2MdLX4JIByW7LM8ig0IUTyGjfnluP+QWIoNzvNDPIWQlR0dNPjJe1i2cI8GH/5t8ROspcVIAKGxIH+dnedQJ2UdAg0O1vo6wWCaBgPZ/At1FS120WKqhuFfo0GCpaDZDqlOs6NhmsA+oLsIZUdU3sb5D5hzeJwGvVjKyu+qtbCP2RDLBrPdXKHF27Xe6xcqDmAVDXbT4rTH4M/RYD8PYzWWq9iPDragaNCiwfUKgr9BgyFa7MzmWL7rD0o8jNVsoTtv/bJbfMW1kmdm28nuZX20t3lBt50G79PC0uCrfOhncClvbQ3+zj3z9SUanKKFy19r8R4HsS17D991iEQikUgkEolEIhH+o38BTOrBBQ1DTMEAAAAASUVORK5CYII=',
+          },
+          {
+            value: 'am',
+            text: 'Армения',
+            img: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFLUlEQVR4nO2cT2wVVRjFT1qBoEZQE0H8g2u2LATfvTMK1tBY0jdotyRKxI1CNFGW3bIASQP23qcLd8bUuLFzDSxMjStjUGNKQQsCXRCoSE1YkIDaY2ZaiJI0pa8zc++030lO0rSvr/nOb+6db76ZPkAkEolEIpFIJBKJAhK341FG6KLCAWp8RIXjVDhNhSvUmKLGP7Oeyr8387Pjs689kP/uFjziu47aiJtxPxV6qHCMCuPUYCHO3kvhKDVezv6G7zqDEoEONqCo0aLG9cJCn9s3qDHEBnYyxn1YruIOrGIDu6lwpoLQ5/JvjLB/Wa2KPHiFd6lw1WPwd/t3KrzDTViJpSwq9FHhfACBc84VofAqlpoYYz0VvgggYN6TFVLGeBJLQdkRRYU/vYeqF+yszX0FdVXWYVDjIDWmAwiTi3CrducGKjxMhW8DCI8F+RvGWIs6iM9hAzV+DiA0FuwxNvA0QhZjPEONiQDCYkm+yK3YiBCVdQ15G+c/JJbsc9yCJxDgnu/zipYVe4wvYg1CEPvQSQUXQCis1AongpglUWPAexjamw/7Db+B7iXQ53MRns6mqn7C13g8H2L5D4GePclnsa56AHWa7eiSrfBZteFrvOS9aB2YG+iuJvzNWEGFs94L1sH51yyb8gFovBlAsQzUe8oNfxNWUuFCAIUyUE+UOjmlwhsBFMmgrfBamQB+8F6gDtwKP5YVfsN7cbombmBL4QDixLXixFHs5s+g6Wyh4ff1DXXGzXRSwnf3dABGibsaxyPFDeqiXekLEr5b2OrvHX6+OABN94EAcAvcftPiJqVR4k4KALcwAM30+0LC7+o68UCUpH8JALcgAHlmfSMPLhqATtw2Cd+11f1l585FA4iSdJ8AcO2130331qIBxE03IABceyugmR4pAEDqBIBrD0CSDi8aQNRMTwkA1+YKcKMFrAA3IQBcuwAuFgAgvSYAXJtbkPujiBVwUwC4drugmwIgqT0A2YJiz1uQnIQTjydhaUOd7zZULsRinxdiMopwfkcRMoxzfodxMo52fsfR2Q2ZuJne8tZLJzV1M721uefLYj4EJLu95r2gpF6OEvcdipLclHftrIBDhQHIHrHwfUTFNXPUO6wLA4D+/o6o6S77LiquiaPEXckeZisOwMz1gPVdWFwTR0k6iKJFi620oBjzZzBYwsO5sxBOCgDMB6Ccx9NzAAZ7BADmA1DiP2gMYSUtLggEzBX+xSyj0gDkECz2CgDMtfe/Xmr4OYAWVtBiXCDg/+EbnGF/RR/eQYMuAYC7V8D2SsK/A8Hic4GA2+F/Wmn4OYBBPEaLywIBkzyG9ZUDyCFY7KDB9LKFYDDNQfR4Cf8OBIMjyxjAIa/h5wCG0EmD1HsYtnIfr6zrmU9sYQ0txgIIhRV5lAN4CCGJH2MdLX4JIByW7LM8ig0IUTyGjfnluP+QWIoNzvNDPIWQlR0dNPjJe1i2cI8GH/5t8ROspcVIAKGxIH+dnedQJ2UdAg0O1vo6wWCaBgPZ/At1FS120WKqhuFfo0GCpaDZDqlOs6NhmsA+oLsIZUdU3sb5D5hzeJwGvVjKyu+qtbCP2RDLBrPdXKHF27Xe6xcqDmAVDXbT4rTH4M/RYD8PYzWWq9iPDragaNCiwfUKgr9BgyFa7MzmWL7rD0o8jNVsoTtv/bJbfMW1kmdm28nuZX20t3lBt50G79PC0uCrfOhncClvbQ3+zj3z9SUanKKFy19r8R4HsS17D991iEQikUgkEolEIhH+o38BTOrBBQ1DTMEAAAAASUVORK5CYII=',
+          },
+        ],
+        onChange: function (value, text, option) {
+          console.log(value, phoneInput);
+
+          const country = value;
+
+          updatePhoneInputPlaceholder(country);
+
+          if (country) {
+            phoneInput.value = formatPhoneNumber({ value: '' }, country);
+          } else {
+            phoneInput.value = '';
+          }
+        },
+      });
+
+      // Создаем звезды на фоне
+      function createStars() {
+        const stars = document.getElementById('stars');
+        const starsCount = 150;
+
+        for (let i = 0; i < starsCount; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+
+          // Случайное положение
+          const x = Math.random() * 100;
+          const y = Math.random() * 100;
+
+          // Случайный размер
+          const size = Math.random() * 3;
+
+          // Случайная задержка анимации
+          const delay = Math.random() * 5;
+
+          star.style.left = `${x}%`;
+          star.style.top = `${y}%`;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          star.style.animationDelay = `${delay}s`;
+
+          stars.appendChild(star);
+        }
+      }
+
+      // Запускаем создание звезд при загрузке страницы
+      window.addEventListener('load', createStars);
+
+      // Объект с кодами стран
+      const countryCodes = {
+        ru: '+7',
+        kz: '+7',
+        uz: '+998',
+        az: '+994',
+        kg: '+996',
+        tj: '+992',
+        ua: '+380',
+        by: '+375',
+        am: '+374',
+        md: '+373',
+      };
+
+      // Объект с названиями стран
+      const countryNames = {
+        ru: 'Россия',
+        kz: 'Казахстан',
+        uz: 'Узбекистан',
+        az: 'Азербайджан',
+        kg: 'Киргизия',
+        tj: 'Таджикистан',
+        ua: 'Украина',
+        by: 'Беларусь',
+        am: 'Армения',
+        md: 'Молдова',
+      };
+
+      // Получаем элементы формы
+      const form = document.getElementById('register-form');
+      const countrySelect = document.getElementById('country-select');
+      console.log(countrySelect);
+      const phoneInput = document.getElementById('phone');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const promoInput = document.getElementById('promo');
+      const submitBtn = document.getElementById('submit-btn');
+
+      submitBtn.onclick = () => {
+        window.location.href =
+          'https://www.google.com/search?q=%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0'; ///// ССЫЛКА НА КНОПКЕ //////
+      };
+
+      // Получаем элементы для сообщений об ошибках
+      const countryError = document.getElementById('country-error');
+      const phoneError = document.getElementById('phone-error');
+      const emailError = document.getElementById('email-error');
+      const passwordError = document.getElementById('password-error');
+
+      // Функция валидации email
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Функция валидации пароля
+      function isValidPassword(password) {
+        return password.length >= 6;
+      }
+
+      // Функция валидации телефона
+      function isValidPhone(phone, country) {
+        // Минимальная длина телефона после кода страны
+        const minLength = {
+          ru: 10, // +7 XXXXXXXXXX
+          kz: 10, // +7 XXXXXXXXXX
+          uz: 9, // +998 XXXXXXXXX
+          az: 9, // +994 XXXXXXXXX
+          kg: 9, // +996 XXXXXXXXX
+          tj: 9, // +992 XXXXXXXXX
+          ua: 9, // +380 XXXXXXXXX
+          by: 9, // +375 XXXXXXXXX
+          am: 8, // +374 XXXXXXXX
+          md: 8, // +373 XXXXXXXX
+        };
+
+        // Убираем код страны и все нецифровые символы
+        const phoneDigits = phone.replace(/\D/g, '');
+
+        return phoneDigits.length >= minLength[country];
+      }
+
+      // Функция для обновления плейсхолдера телефона
+      function updatePhoneInputPlaceholder(country) {
+        if (!country) {
+          phoneInput.placeholder = 'Введите номер телефона';
+          return;
+        }
+
+        const code = countryCodes[country];
+
+        switch (country) {
+          case 'ru':
+          case 'kz':
+            phoneInput.placeholder = `${code} XXX XXX-XX-XX`;
+            break;
+          case 'uz':
+            phoneInput.placeholder = `${code} XX XXX-XX-XX`;
+            break;
+          case 'az':
+            phoneInput.placeholder = `${code} XX XXX-XX-XX`;
+            break;
+          case 'kg':
+            phoneInput.placeholder = `${code} XXX XXX-XXX`;
+            break;
+          case 'tj':
+            phoneInput.placeholder = `${code} XX XXX-XXXX`;
+            break;
+          case 'ua':
+            phoneInput.placeholder = `${code} XX XXX-XX-XX`;
+            break;
+          case 'by':
+            phoneInput.placeholder = `${code} XX XXX-XX-XX`;
+            break;
+          case 'am':
+            phoneInput.placeholder = `${code} XX XXX-XXX`;
+            break;
+          case 'md':
+            phoneInput.placeholder = `${code} XX XXX-XXX`;
+            break;
+          default:
+            phoneInput.placeholder = 'Введите номер телефона';
+        }
+      }
+
+      // Функция для форматирования номера телефона
+      function formatPhoneNumber(input, country) {
+        // Если страна не выбрана, не форматируем
+        if (!country) return input.value;
+
+        let value = input.value.replace(/\D/g, '');
+        let formattedValue = '';
+
+        const code = countryCodes[country].replace('+', '');
+
+        // Если номер начинается с кода страны, удаляем его
+        if (value.startsWith(code)) {
+          value = value.substring(code.length);
+        }
+
+        // Если номер начинается с 8 для России или Казахстана, удаляем его
+        if ((country === 'ru' || country === 'kz') && value.startsWith('8')) {
+          value = value.substring(1);
+        }
+
+        // Форматирование по странам
+        if (country === 'ru' || country === 'kz') {
+          // +7 XXX XXX-XX-XX
+          if (value.length > 0) {
+            formattedValue = `${countryCodes[country]} `;
+
+            if (value.length > 0) {
+              formattedValue += value.substring(0, Math.min(3, value.length));
+            }
+
+            if (value.length > 3) {
+              formattedValue +=
+                ' ' + value.substring(3, Math.min(6, value.length));
+            }
+
+            if (value.length > 6) {
+              formattedValue +=
+                '-' + value.substring(6, Math.min(8, value.length));
+            }
+
+            if (value.length > 8) {
+              formattedValue +=
+                '-' + value.substring(8, Math.min(10, value.length));
+            }
+          }
+        } else if (
+          country === 'uz' ||
+          country === 'az' ||
+          country === 'ua' ||
+          country === 'by'
+        ) {
+          // +998/+994/+380/+375 XX XXX-XX-XX
+          if (value.length > 0) {
+            formattedValue = `${countryCodes[country]} `;
+
+            if (value.length > 0) {
+              formattedValue += value.substring(0, Math.min(2, value.length));
+            }
+
+            if (value.length > 2) {
+              formattedValue +=
+                ' ' + value.substring(2, Math.min(5, value.length));
+            }
+
+            if (value.length > 5) {
+              formattedValue +=
+                '-' + value.substring(5, Math.min(7, value.length));
+            }
+
+            if (value.length > 7) {
+              formattedValue +=
+                '-' + value.substring(7, Math.min(9, value.length));
+            }
+          }
+        } else if (country === 'kg') {
+          // +996 XXX XXX-XXX
+          if (value.length > 0) {
+            formattedValue = `${countryCodes[country]} `;
+
+            if (value.length > 0) {
+              formattedValue += value.substring(0, Math.min(3, value.length));
+            }
+
+            if (value.length > 3) {
+              formattedValue +=
+                ' ' + value.substring(3, Math.min(6, value.length));
+            }
+
+            if (value.length > 6) {
+              formattedValue +=
+                '-' + value.substring(6, Math.min(9, value.length));
+            }
+          }
+        } else if (country === 'tj') {
+          // +992 XX XXX-XXXX
+          if (value.length > 0) {
+            formattedValue = `${countryCodes[country]} `;
+
+            if (value.length > 0) {
+              formattedValue += value.substring(0, Math.min(2, value.length));
+            }
+
+            if (value.length > 2) {
+              formattedValue +=
+                ' ' + value.substring(2, Math.min(5, value.length));
+            }
+
+            if (value.length > 5) {
+              formattedValue +=
+                '-' + value.substring(5, Math.min(9, value.length));
+            }
+          }
+        } else if (country === 'am' || country === 'md') {
+          // +374/+373 XX XXX-XXX
+          if (value.length > 0) {
+            formattedValue = `${countryCodes[country]} `;
+
+            if (value.length > 0) {
+              formattedValue += value.substring(0, Math.min(2, value.length));
+            }
+
+            if (value.length > 2) {
+              formattedValue +=
+                ' ' + value.substring(2, Math.min(5, value.length));
+            }
+
+            if (value.length > 5) {
+              formattedValue +=
+                '-' + value.substring(5, Math.min(8, value.length));
+            }
+          }
+        }
+
+        return formattedValue;
+      }
+
+      // Функция для проверки валидности всей формы (только для активации/деактивации кнопки)
+      function validateForm() {
+        const country = countrySelect.value;
+        const phone = phoneInput.value;
+        const email = emailInput.value;
+        const password = passwordInput.value;
+
+        // Проверяем все поля
+        const isCountryValid = true;
+        const isPhoneValid = isCountryValid && isValidPhone(phone, country);
+        const isEmailValid = isValidEmail(email);
+        const isPasswordValid = isValidPassword(password);
+
+        console.log('valid');
+
+        // Активируем кнопку, если все поля валидны
+        submitBtn.disabled = !(
+          isCountryValid &&
+          isPhoneValid &&
+          isEmailValid &&
+          isPasswordValid
+        );
+
+        return (
+          isCountryValid && isPhoneValid && isEmailValid && isPasswordValid
+        );
+      }
+
+      // Объект для отслеживания, взаимодействовал ли пользователь с полем
+      const fieldInteracted = {
+        'country-select': false,
+        phone: false,
+        email: false,
+        password: false,
+      };
+
+      // Функция для валидации конкретного поля
+      function validateField(field) {
+        // Отмечаем поле как использованное
+        fieldInteracted[field.id] = true;
+
+        const country = countrySelect.value;
+
+        // Проверяем только конкретное поле
+        switch (field.id) {
+          case 'country-select':
+            if (!country) {
+              countryError.classList.add('visible');
+            } else {
+              countryError.classList.remove('visible');
+            }
+            break;
+
+          case 'phone':
+            if (!isValidPhone(field.value, country)) {
+              phoneError.classList.add('visible');
+            } else {
+              phoneError.classList.remove('visible');
+            }
+            break;
+
+          case 'email':
+            if (!isValidEmail(field.value)) {
+              emailError.classList.add('visible');
+            } else {
+              emailError.classList.remove('visible');
+            }
+            break;
+
+          case 'password':
+            if (!isValidPassword(field.value)) {
+              passwordError.classList.add('visible');
+            } else {
+              passwordError.classList.remove('visible');
+            }
+            break;
+        }
+
+        // Обновляем состояние кнопки
+        validateForm();
+      }
+
+      // Скрываем все сообщения об ошибках при загрузке страницы
+      function hideAllErrors() {
+        countryError.classList.remove('visible');
+        phoneError.classList.remove('visible');
+        emailError.classList.remove('visible');
+        passwordError.classList.remove('visible');
+      }
+
+      // Обработчики событий полей
+
+      // Страна
+      countrySelect.addEventListener('change', function () {
+        console.log('Страна изменена:', this.value);
+        const country = this.value;
+
+        // Устанавливаем плейсхолдер для телефона
+        updatePhoneInputPlaceholder(country);
+
+        // Очищаем ввод телефона и автоматически вставляем код страны
+        if (country) {
+          phoneInput.value = formatPhoneNumber({ value: '' }, country);
+        } else {
+          phoneInput.value = '';
+        }
+
+        validateField(this);
+      });
+
+      countrySelect.addEventListener('blur', function () {
+        validateField(this);
+      });
+
+      // Телефон
+      phoneInput.addEventListener('input', function () {
+        const country = countrySelect.value;
+
+        if (country) {
+          // Сохраняем позицию курсора
+          const cursorPosition = this.selectionStart;
+          const oldValue = this.value;
+
+          // Форматируем номер
+          this.value = formatPhoneNumber(this, country);
+
+          // Пытаемся восстановить позицию курсора
+          if (oldValue !== this.value) {
+            const newCursorPosition =
+              cursorPosition + (this.value.length - oldValue.length);
+            this.setSelectionRange(newCursorPosition, newCursorPosition);
+          }
+        }
+
+        validateField(this);
+      });
+
+      phoneInput.addEventListener('blur', function () {
+        validateField(this);
+      });
+
+      // Email
+      emailInput.addEventListener('input', function () {
+        validateField(this);
+      });
+
+      emailInput.addEventListener('blur', function () {
+        validateField(this);
+      });
+
+      // Пароль
+      passwordInput.addEventListener('input', function () {
+        validateField(this);
+      });
+
+      passwordInput.addEventListener('blur', function () {
+        validateField(this);
+      });
+
+      // Промокод (просто обновляем кнопку)
+      promoInput.addEventListener('input', function () {
+        validateForm();
+      });
+
+      // Обработчик отправки формы
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // При отправке отмечаем все поля как использованные
+        fieldInteracted['country-select'] = true;
+        fieldInteracted['phone'] = true;
+        fieldInteracted['email'] = true;
+        fieldInteracted['password'] = true;
+
+        // Проверяем каждое поле отдельно
+        validateField(countrySelect);
+        validateField(phoneInput);
+        validateField(emailInput);
+        validateField(passwordInput);
+
+        if (validateForm()) {
+          // Тут можно добавить логику отправки формы на сервер
+          alert('Форма успешно отправлена!');
+        }
+      });
+
+      // Инициализация при загрузке страницы
+      window.addEventListener('load', function () {
+        // Скрываем все ошибки
+        hideAllErrors();
+
+        // Устанавливаем начальное значение для телефона (по умолчанию Россия)
+        const defaultCountry = countrySelect.value;
+        phoneInput.value = formatPhoneNumber({ value: '' }, defaultCountry);
+
+        // Валидируем форму для активации/деактивации кнопки
+        validateForm();
+      });
+
+      ////////
+      document.addEventListener('DOMContentLoaded', function () {
+        const customSelect = document.getElementById('customSelect');
+        const header = customSelect.querySelector('.custom-select-header');
+        const options = customSelect.querySelectorAll('.custom-select-option');
+        const selectedText = document.getElementById('selectedText');
+        const selectedImage = document.getElementById('selectedImage');
+
+        // Открываем/закрываем выпадающий список при клике на заголовок
+        header.addEventListener('click', function () {
+          customSelect.classList.toggle('open');
+        });
+
+        // Обрабатываем выбор опции
+        options.forEach((option) => {
+          option.addEventListener('click', function () {
+            const value = this.getAttribute('data-value');
+            const text = this.querySelector('span').textContent;
+            const imageSrc = this.getAttribute('data-image');
+
+            selectedText.textContent = text;
+            selectedImage.src = imageSrc;
+            customSelect.classList.remove('open');
+
+            // Здесь можно добавить код для обработки выбранного значения
+            console.log('Выбрано:', value);
+          });
+        });
+
+        // Закрываем выпадающий список при клике вне него
+        document.addEventListener('click', function (event) {
+          if (!customSelect.contains(event.target)) {
+            customSelect.classList.remove('open');
+          }
+        });
+
+        // Код для нативного Select с датаатрибутами
+        const selectWithImages = document.getElementById('selectWithImages');
+        const imageDisplay = document.getElementById('imageDisplay');
+
+        selectWithImages.addEventListener('change', function () {
+          const selectedOption = this.options[this.selectedIndex];
+          const imageSrc = selectedOption.getAttribute('data-image');
+
+          if (imageSrc) {
+            imageDisplay.innerHTML = `<img src="${imageSrc}" alt="${selectedOption.textContent}" style="width: 24px; height: 24px; margin-right: 5px;"> ${selectedOption.textContent}`;
+          } else {
+            imageDisplay.innerHTML = '';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
